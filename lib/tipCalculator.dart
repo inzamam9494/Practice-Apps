@@ -9,7 +9,10 @@ class TipCalculator extends StatefulWidget {
 
 class _TipCalculatorState extends State<TipCalculator> {
 
+  final TextEditingController billAmount = TextEditingController();
+  final TextEditingController tipPercentage = TextEditingController();
   bool isSwitch = false;
+  double total = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +23,7 @@ class _TipCalculatorState extends State<TipCalculator> {
           children: [
             const Text("Calculate Tip"),
             TextField(
+              controller: billAmount,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 hintText: "Bill Amount",
@@ -29,6 +33,7 @@ class _TipCalculatorState extends State<TipCalculator> {
               ),
             ),
             TextField(
+              controller: tipPercentage,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 hintText: "Tip Percentage",
@@ -43,12 +48,17 @@ class _TipCalculatorState extends State<TipCalculator> {
                 Switch(value: isSwitch,
                     onChanged: (value){
                   setState(() {
-                    value = true;
+                    isSwitch = value;
+                    if(value == true){
+                      double bill = double.parse(billAmount.text);
+                      double tip = double.parse(tipPercentage.text);
+                      total = (tip/bill)*100;
+                    }
                   });
                     }),
-                const Text("Tip Amount: \$0.00")
               ],
-            )
+            ),
+            Text("Tip Amount: \$ $total"),
           ],
         ),
       ),
