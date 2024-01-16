@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'diceRollerApp.dart';
+import 'package:happy_birthday/affirmation.dart';
 
 class TipCalculator extends StatefulWidget {
   const TipCalculator({super.key});
@@ -93,7 +92,7 @@ class _TipCalculatorState extends State<TipCalculator> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(builder: (
-                              BuildContext context) => const DiceRollerApp()));
+                              BuildContext context) => const Affirmation()));
                     },
                     style: const ButtonStyle(
                         backgroundColor:
