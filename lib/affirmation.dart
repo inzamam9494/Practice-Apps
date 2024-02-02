@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:happy_birthday/widgets/animationList.dart';
 import 'package:happy_birthday/woof.dart';
 
 class Affirmation extends StatefulWidget {
@@ -156,7 +157,7 @@ class _AffirmationState extends State<Affirmation> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(builder: (
-                            BuildContext context) => const Woof()));
+                            BuildContext context) => const AnimationList()));
                   },
                   style: const ButtonStyle(
                       backgroundColor:
